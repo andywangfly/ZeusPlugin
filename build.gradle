@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         //设置为2.0以上可能会打开instant run,那么补丁要想调试需要进行代码上的更改，具体请看PluginManager.java中的loadHotfixPluginClassLoader()
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:3.4.1'
 
         //start-----补丁插件--------
         //这里是使用远程依赖的gradle插件来执行插庄过程，源码在https://github.com/iReaderAndroid/PatchPluginForZeus
@@ -26,6 +26,20 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
+    }
+    
+    ext {
+
+        buildToolsVersion = "28.0.3"
+        compileSdkVersion = 28
+        targetSdkVersion = 26
+        minSdkVersion = 19
+        aarDirs = rootDir.absolutePath + "/aars"
+        outputDir = rootDir.absolutePath + "/output/"
+
+        thirdparty_groupId = "com.huawei.videoservice.hwread.3rdparty"
+        video_thirdparty_groupId = "com.huawei.videoservice.3rdparty"
+        thirdpartyTemp_groupId = "com.huawei.cloud3rdpartytemp.videoservice"
     }
 }
 
