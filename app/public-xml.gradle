@@ -1,7 +1,6 @@
 afterEvaluate {
     for (variant in android.applicationVariants) {
-        def scope = variant.getVariantData().getScope()
-        String mergeTaskName = scope.getMergeResourcesTask().name
+        String mergeTaskName = variant.getVariantData().getTaskContainer().getMergeResourcesTask().name
         def mergeTask = tasks.getByName(mergeTaskName)
 
         mergeTask.doLast {
